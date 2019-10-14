@@ -28,7 +28,7 @@ const theme = {
       }
     },
     font: {
-      family: "Roboto",
+      family: "Josefin Sans",
       size: "16px",
       height: "20px"
     }
