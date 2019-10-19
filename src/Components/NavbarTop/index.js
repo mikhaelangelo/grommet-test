@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Box, Anchor, Text, Image, Button } from "grommet";
-import { Article, Notification } from "grommet-icons";
+import { Box, Anchor, Button } from "grommet";
+import { Article } from "grommet-icons";
 
 const AppBar = props => (
   <Box

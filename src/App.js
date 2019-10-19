@@ -3,16 +3,15 @@ import {
   Box,
   Button,
   Collapsible,
-  Drop,
   Grid,
   Grommet,
-  Heading,
   Image,
   Layer,
   ResponsiveContext
 } from "grommet";
-import { Article, FormClose, Notification } from "grommet-icons";
+import { FormClose } from "grommet-icons";
 import NavbarTop from "./Components/NavbarTop";
+import HeaderHomePage from "./Components/HeaderHomePage";
 
 const theme = {
   global: {
@@ -22,9 +21,8 @@ const theme = {
         dark: true,
         opacity: true,
         backgroundColor: "light-1",
-        backgroundPosition: "right",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: "url(./path_1486.svg)"
+        background: "#f8f8f8 url(./path_1486.svg) no-repeat right",
+        backgroundSize: "contain"
       }
     },
     font: {
@@ -67,9 +65,9 @@ class App extends Component {
             <Box fill>
               <Grid
                 columns={["minmax(0, 1fr)", "medium"]}
-                rows={["small", "minmax(0, 1fr)"]}
+                rows={["auto", "minmax(0, 1fr)"]}
                 gap="small"
-                fill="true"
+                fill
                 areas={[
                   { name: "nav", start: [1, 0], end: [1, 0] },
                   { name: "main", start: [0, 1], end: [1, 1] },
@@ -77,41 +75,18 @@ class App extends Component {
                 ]}
               >
                 <Box gridArea="header" justify="end">
-                  <Heading
-                    level="3"
-                    alignSelf="start"
-                    margin="xsmall"
-                    responsive="true"
-                    textAlign="end"
-                  >
-                    Bem-vindo ao setor de
-                  </Heading>
-                  <Heading
-                    level="1"
-                    alignSelf="start"
-                    margin="xsmall"
-                    responsive="true"
-                    textAlign="end"
-                  >
-                    Soluções Web e Mobile
-                  </Heading>
+                  <HeaderHomePage></HeaderHomePage>
                 </Box>
 
                 <Navbar ref={ref} handler={this.changeState}></Navbar>
-
-                <Drop target={ref.current}></Drop>
-                <Box
-                  gridArea="main"
-                  direction="row"
-                  flex
-                  overflow={{ horizontal: "hidden" }}
-                >
+                <Box gridArea="main" direction="row" flex overflow="visible">
                   <Box flex align="center" justify="center">
                     <Grid
                       columns={["medium", "minmax(0, 1fr)"]}
                       rows={["minmax(0, 1fr)"]}
                       gap="small"
-                      fill="true"
+                      fill
+                      alignContent="center"
                       areas={[
                         { name: "bodyImage", start: [1, 0], end: [1, 0] },
                         { name: "body", start: [0, 0], end: [0, 0] }
@@ -119,6 +94,32 @@ class App extends Component {
                     >
                       <Box gridArea="bodyImage" width="100%" height="100%">
                         <Image src="./setor_ti.svg" fit="contain" />
+                      </Box>
+                      <Box
+                        gridArea="body"
+                        width="100%"
+                        height="100%"
+                        justify="center"
+                        margin={{ left: "small" }}
+                      >
+                        <p>
+                          Mussum Ipsum, cacilds vidis litro abertis. A ordem dos
+                          tratores não altera o pão duris. Suco de cevadiss, é
+                          um leite divinis, qui tem lupuliz, matis, aguis e
+                          fermentis. Si u mundo tá muito paradis? Toma um mé que
+                          o mundo vai girarzis! Interagi no mé, cursus quis,
+                          vehicula ac nisi. Tá deprimidis, eu conheço uma
+                          cachacis que pode alegrar sua vidis. Si num tem leite
+                          então bota uma pinga aí cumpadi! Leite de capivaris,
+                          leite de mula manquis sem cabeça. Sapien in monti
+                          palavris qui num significa nadis i pareci latim. Todo
+                          mundo vê os porris que eu tomo, mas ninguém vê os
+                          tombis que eu levo! Copo furadis é disculpa de
+                          bebadis, arcu quam euismod magna. Mais vale um bebadis
+                          conhecidiss, que um alcoolatra anonimis. Em pé sem
+                          cair, deitado sem dormir, sentado sem cochilar e
+                          fazendo pose.
+                        </p>
                       </Box>
                     </Grid>
                   </Box>
