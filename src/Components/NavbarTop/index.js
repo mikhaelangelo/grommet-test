@@ -11,6 +11,7 @@ const AppBar = props => (
     justify="between"
     background="brand"
     pad={{ left: "small", right: "small", vertical: "medium" }}
+    margin={{ right: "medium" }}
     style={{ zIndex: "1" }}
     {...props}
   />

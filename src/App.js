@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-import {
-  Box,
-  Button,
-  Collapsible,
-  Grid,
-  Grommet,
-  Image,
-  Layer,
-  ResponsiveContext
-} from "grommet";
-import { FormClose } from "grommet-icons";
+import { Box, Grid, Grommet, ResponsiveContext } from "grommet";
+
 import NavbarTop from "./Components/NavbarTop";
 import HeaderHomePage from "./Components/HeaderHomePage";
+import BodyImage from "./Components/BodyImage";
+import Sidebar from "./Components/Sidebar";
 
 const theme = {
   global: {
@@ -78,7 +71,11 @@ class App extends Component {
                   <HeaderHomePage></HeaderHomePage>
                 </Box>
 
-                <Navbar ref={ref} handler={this.changeState}></Navbar>
+                <Navbar
+                  ref={ref}
+                  handler={this.changeState}
+                  mouseOver={this.mouseOver}
+                ></Navbar>
                 <Box gridArea="main" direction="row" flex overflow="visible">
                   <Box flex align="center" justify="center">
                     <Grid
@@ -92,17 +89,17 @@ class App extends Component {
                         { name: "body", start: [0, 0], end: [0, 0] }
                       ]}
                     >
-                      <Box gridArea="bodyImage" width="100%" height="100%">
-                        <Image src="./setor_ti.svg" fit="contain" />
-                      </Box>
+                      <BodyImage></BodyImage>
                       <Box
                         gridArea="body"
                         width="100%"
                         height="100%"
                         justify="center"
-                        margin={{ left: "small" }}
+                        margin={{ left: "large" }}
                       >
-                        <p>
+                        <p
+                          style={{ margin: 6, lineHeight: 1.5, width: "120%" }}
+                        >
                           Mussum Ipsum, cacilds vidis litro abertis. A ordem dos
                           tratores não altera o pão duris. Suco de cevadiss, é
                           um leite divinis, qui tem lupuliz, matis, aguis e
@@ -123,43 +120,7 @@ class App extends Component {
                       </Box>
                     </Grid>
                   </Box>
-                  {!showSidebar || size !== "small" ? (
-                    <Collapsible direction="horizontal" open={showSidebar}>
-                      <Box
-                        flex
-                        width="medium"
-                        background="dark-1"
-                        elevation="small"
-                        align="center"
-                        justify="center"
-                      >
-                        sidebar
-                      </Box>
-                    </Collapsible>
-                  ) : (
-                    <Layer>
-                      <Box
-                        background="dark-1"
-                        tag="header"
-                        justify="end"
-                        align="center"
-                        direction="row"
-                      >
-                        <Button
-                          icon={<FormClose />}
-                          onClick={() => this.setState({ showSidebar: false })}
-                        />
-                      </Box>
-                      <Box
-                        fill
-                        background="dark-1"
-                        align="center"
-                        justify="center"
-                      >
-                        sidebar
-                      </Box>
-                    </Layer>
-                  )}
+                  <Sidebar size={size} showSidebar={showSidebar}></Sidebar>
                 </Box>
               </Grid>
             </Box>
